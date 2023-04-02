@@ -6,7 +6,6 @@
 
 import { ForwardRefExoticComponent } from 'react';
 import { FunctionComponent } from 'react';
-import { MutableRefObject } from 'react';
 import { PathLike } from 'fs';
 import { ReactElement } from 'react';
 import { ReactNode } from 'react';
@@ -130,7 +129,7 @@ export declare namespace Action {
          * * `Date` - only year, month, and day can be picked
          * * `DateTime` - hour and second can be picked in addition to year, month and day
          */
-        export type Type = DatePickerType_2;
+        export type Type = DatePickerType;
     }
 }
 
@@ -171,17 +170,17 @@ export declare namespace Action {
  * }
  * ```
  */
-export declare const ActionPanel: FunctionComponent<ActionPanelProps_2> & ActionPanelMembers;
+export declare const ActionPanel: FunctionComponent<ActionPanelProps> & ActionPanelMembers;
 
 export declare namespace ActionPanel {
     /**
      * Props of the {@link ActionPanel} React component.
      */
-    export type Props = ActionPanelProps_2;
+    export type Props = ActionPanelProps;
     /**
      * Supported children for the {@link ActionPanel} components.
      */
-    export type Children = ActionPanelChildren_2;
+    export type Children = ActionPanelChildren;
     export namespace Section {
         /**
          * Props of the {@link ActionPanel.Section} React component.
@@ -204,7 +203,7 @@ export declare namespace ActionPanel {
     }
 }
 
-declare type ActionPanelChildren_2 = ReactElement<ActionPanel.Section.Props> | ReactElement<ActionPanel.Section.Props>[] | ActionPanel.Section.Children | null;
+declare type ActionPanelChildren = ReactElement<ActionPanel.Section.Props> | ReactElement<ActionPanel.Section.Props>[] | ActionPanel.Section.Children | null;
 
 declare interface ActionPanelMembers {
     /**
@@ -293,7 +292,7 @@ declare interface ActionPanelMembers {
     Submenu: typeof Submenu;
 }
 
-declare interface ActionPanelProps_2 {
+declare interface ActionPanelProps {
     /**
      * Sections or Actions. If {@link Action} elements are specified, a default section is automatically created.
      */
@@ -590,7 +589,7 @@ declare const Checkbox: ForwardRefExoticComponent<CheckboxProps & RefAttributes<
 /**
  * See {@link Form.Checkbox.Props}
  */
-declare interface CheckboxProps extends FormItemProps_2<boolean> {
+declare interface CheckboxProps extends FormItemProps<boolean> {
     /**
      * The label displayed on the right side of the checkbox.
      */
@@ -1373,16 +1372,7 @@ declare interface DatePickerMembers {
     Type: typeof DatePickerType;
 }
 
-declare interface DatePickerMembers_2 {
-    /**
-     * The types of date components the user can pick
-     * * `Date` - only year, month, and day can be picked
-     * * `DateTime` - hour and second can be picked in addition to year, month and day
-     */
-    Type: typeof DatePickerType_2;
-}
-
-declare interface DatePickerProps extends FormItemProps_2<Date | null> {
+declare interface DatePickerProps extends FormItemProps<Date | null> {
     /**
      * Indicates what types of date components can be picked
      *
@@ -1397,23 +1387,9 @@ declare interface DatePickerProps extends FormItemProps_2<Date | null> {
 declare type DatePickerRef = FormItemRef;
 
 /**
- * See {@link Form.DatePicker.Type}
+ * See {@link Form.DatePicker.Type}, {@link Action.PickDate.Type}
  */
 declare enum DatePickerType {
-    /**
-     * Only year, month, and day can be picked
-     */
-    Date = "date",
-    /**
-     * hour and second can be picked in addition to year, month and day
-     */
-    DateTime = "date_time"
-}
-
-/**
- * See {@link Action.PickDate.Type}
- */
-declare enum DatePickerType_2 {
     /**
      * Only year, month, and day can be picked
      */
@@ -1503,7 +1479,7 @@ export declare namespace Detail {
             /**
              * Props of the {@link Detail.Metadata.Separator} React component.
              */
-            export type Props = SeparatorProps_2;
+            export type Props = SeparatorProps;
         }
         export namespace Link {
             /**
@@ -1529,7 +1505,7 @@ export declare namespace Detail {
 /**
  * See {@link List.Item.Detail}
  */
-declare const Detail_2: FunctionComponent<DetailProps_3> & DetailMembers_2;
+declare const Detail_2: FunctionComponent<DetailProps_2> & DetailMembers_2;
 
 declare interface DetailMembers {
     /**
@@ -1630,7 +1606,7 @@ declare interface DetailMembers_2 {
     Metadata: typeof Metadata;
 }
 
-declare interface DetailProps_2 extends ActionsInterface, NavigationChildInterface {
+declare interface DetailProps extends ActionsInterface, NavigationChildInterface {
     /**
      * The CommonMark string to be rendered.
      */
@@ -1641,7 +1617,7 @@ declare interface DetailProps_2 extends ActionsInterface, NavigationChildInterfa
     metadata?: ReactNode;
 }
 
-declare interface DetailProps_3 {
+declare interface DetailProps_2 {
     /**
      * Indicates whether a loading bar should be shown or hidden above the detail
      *
@@ -1669,14 +1645,9 @@ declare const Dropdown: ForwardRefExoticComponent<DropdownProps & RefAttributes<
 declare const Dropdown_2: FunctionComponent<DropdownProps_2> & DropdownMembers_2;
 
 /**
- * See {@link Form.Dropdown.Item}
+ * See {@link Form.Dropdown.Item}, {@link Grid.Dropdown.Item}
  */
 declare const DropdownItem: FunctionComponent<DropdownItemProps>;
-
-/**
- * See {@link Grid.Dropdown.Item}
- */
-declare const DropdownItem_2: FunctionComponent<DropdownItemProps_2>;
 
 /**
  * See {@link Form.Dropdown.Item.Props}
@@ -1695,29 +1666,6 @@ declare interface DropdownItemProps {
      * A optional icon displayed for the item.
      */
     icon?: Image.ImageLike;
-    /**
-     * An optional property used for providing additional indexable strings for search.
-     * When filtering the items in Raycast, the keywords will be searched in addition to the title.
-     *
-     * @defaultValue The title of its section if any
-     */
-    keywords?: string[];
-}
-
-declare interface DropdownItemProps_2 {
-    /**
-     * Value of the dropdown item.
-     * Make sure to assign each unique value for each item.
-     */
-    value: string;
-    /**
-     * The title displayed for the item.
-     */
-    title: string;
-    /**
-     * An optional icon displayed for the item.
-     */
-    icon?: Image.ImageLike | undefined | null;
     /**
      * An optional property used for providing additional indexable strings for search.
      * When filtering the items in Raycast, the keywords will be searched in addition to the title.
@@ -1819,7 +1767,7 @@ declare interface DropdownMembers_2 {
      * }
      * ```
      */
-    Section: typeof DropdownSection_2;
+    Section: typeof DropdownSection;
     /**
      * A dropdown item in a Dropdown
      *
@@ -1842,13 +1790,13 @@ declare interface DropdownMembers_2 {
      * }
      * ```
      */
-    Item: typeof DropdownItem_2;
+    Item: typeof DropdownItem;
 }
 
 /**
  * See {@link Form.Dropdown.Props}
  */
-declare interface DropdownProps extends FormItemProps_2<string>, SearchBarInterface {
+declare interface DropdownProps extends FormItemProps<string>, SearchBarInterface {
     /**
      * Placeholder text that will be shown in the dropdown search field.
      *
@@ -1909,14 +1857,9 @@ declare interface DropdownProps_2 extends SearchBarInterface {
 declare type DropdownRef = FormItemRef;
 
 /**
- * See {@link Form.Dropdown.Section}
+ * See {@link Form.Dropdown.Section}, {@link Grid.Dropdown.Section}
  */
 declare const DropdownSection: FunctionComponent<DropdownSectionProps>;
-
-/**
- * See {@link Grid.Dropdown.Section}
- */
-declare const DropdownSection_2: FunctionComponent<DropdownSectionProps_2>;
 
 /**
  * See {@link Form.Dropdown.Section.Props}
@@ -1932,16 +1875,6 @@ declare interface DropdownSectionProps {
     title?: string;
 }
 
-declare interface DropdownSectionProps_2 {
-    /**
-     * The item elements of the section.
-     */
-    children?: ReactNode;
-    /**
-     * Title displayed above the section
-     */
-    title?: string;
-}
 
 declare const EmptyView: FunctionComponent<EmptyViewProps>;
 
@@ -2065,7 +1998,7 @@ declare const FilePicker: ForwardRefExoticComponent<FilePickerProps & RefAttribu
 /**
  * See {@link Form.FilePicker.Props}
  */
-declare interface FilePickerProps extends FormItemProps_2<string[]> {
+declare interface FilePickerProps extends FormItemProps<string[]> {
     /**
      * Indicates whether it's possible to choose a file.
      * @defaultValue `true`
@@ -2103,18 +2036,18 @@ export declare interface FileSystemItem {
 /**
  * Shows a list of form items such as {@link Form.TextField}, {@link Form.Checkbox} or {@link Form.Dropdown}.
  */
-export declare const Form: FunctionComponent<FormProps_2> & FormMembers;
+export declare const Form: FunctionComponent<FormProps> & FormMembers;
 
 export declare namespace Form {
-    export type ItemProps<T extends FormValue_2> = FormItemProps_2<T>;
-    export type Value = FormValue_2;
-    export type Values = FormValues_2;
-    export type Props = FormProps_2;
+    export type ItemProps<T extends FormValue> = FormItemProps<T>;
+    export type Value = FormValue;
+    export type Values = FormValues;
+    export type Props = FormProps;
     export type ItemReference = FormItemRef;
     /**
      * An interface describing event in callbacks {@link Form.Item.Props.onFocus} and {@link Form.Item.Props.onBlur}
      */
-    export type Event<T extends FormValue_2> = FormEvent<T>;
+    export type Event<T extends FormValue> = FormEvent<T>;
     export namespace Event {
         /**
          * Types of Form event {@link Form.Event}
@@ -2799,7 +2732,7 @@ export declare namespace Form {
  *
  * ```
  */
-declare type FormEvent<T extends FormValue_2> = {
+declare type FormEvent<T extends FormValue> = {
     /**
      * An interface containing target data related to the event
      */
@@ -2829,7 +2762,7 @@ declare type FormEventType = "focus" | "blur";
 /**
  * Props of the Form.Item React component.
  */
-declare interface FormItemProps_2<T extends FormValue_2> {
+declare interface FormItemProps<T extends FormValue> {
     /**
      * ID of the form item.
      * Make sure to assign each form item a unique id.
@@ -3491,7 +3424,7 @@ declare interface FormMembers {
 /**
  * Props of the {@link Form} React component.
  */
-declare interface FormProps_2 extends ActionsInterface, NavigationChildInterface {
+declare interface FormProps extends ActionsInterface, NavigationChildInterface {
     /**
      * Defines whether the Form.Items values will be preserved when user exits the screen.
      * @remarks Keep in mind that drafts for forms nested in navigation is not supported yet. In the case you will see a warning about it.
@@ -3507,7 +3440,7 @@ declare interface FormProps_2 extends ActionsInterface, NavigationChildInterface
 /**
  * A possible form item value that will be used as an input for the submit callback of a form.
  */
-declare type FormValue_2 = string | number | boolean | string[] | number[] | Date | null;
+declare type FormValue = string | number | boolean | string[] | number[] | Date | null;
 
 /**
  * Values of items in the form.
@@ -3545,14 +3478,12 @@ declare type FormValue_2 = string | number | boolean | string[] | number[] | Dat
  * };
  * ```
  */
-declare interface FormValues_2 {
+declare interface FormValues {
     /**
      * The form value of a given item.
      */
     [item: string]: any;
 }
-
-declare type FunctionReturningPromise<T extends any[] = any[]> = (...args: T) => Promise<any>;
 
 /**
  * Returns all applications that can open the file.
@@ -3773,13 +3704,13 @@ export declare namespace Grid {
             /**
              * Props of the {@link Grid.Dropdown.Item} React component.
              */
-            export type Props = DropdownItemProps_2;
+            export type Props = DropdownItemProps;
         }
         export namespace Section {
             /**
              * Props of the {@link Grid.Dropdown.Section} React component.
              */
-            export type Props = DropdownSectionProps_2;
+            export type Props = DropdownSectionProps;
         }
     }
     export namespace Item {
@@ -5129,13 +5060,13 @@ declare interface LinkProps {
  * }
  * ```
  */
-export declare const List: FunctionComponent<ListProps_2> & ListMembers;
+export declare const List: FunctionComponent<ListProps> & ListMembers;
 
 export declare namespace List {
     /**
      * Props of the {@link List} React component.
      */
-    export type Props = ListProps_2;
+    export type Props = ListProps;
     export namespace EmptyView {
         export type Props = EmptyViewProps;
     }
@@ -5148,13 +5079,13 @@ export declare namespace List {
             /**
              * Props of the {@link List.Dropdown.Item} React component.
              */
-            export type Props = DropdownItemProps_2;
+            export type Props = DropdownItemProps;
         }
         export namespace Section {
             /**
              * Props of the {@link List.Dropdown.Section} React component.
              */
-            export type Props = DropdownSectionProps_2;
+            export type Props = DropdownSectionProps;
         }
     }
     export namespace Item {
@@ -5183,7 +5114,7 @@ export declare namespace List {
             /**
              * Props of the {@link List.Item.Detail} React component.
              */
-            export type Props = DetailProps_3;
+            export type Props = DetailProps_2;
             export namespace Metadata {
                 /**
                  * Props of the {@link List.Item.Detail.Metadata} React component.
@@ -5199,7 +5130,7 @@ export declare namespace List {
                     /**
                      * Props of the {@link List.Item.Detail.Metadata.Separator} React component.
                      */
-                    export type Props = SeparatorProps_2;
+                    export type Props = SeparatorProps;
                 }
                 export namespace Link {
                     /**
@@ -5369,7 +5300,7 @@ declare interface ListMembers {
     Dropdown: typeof Dropdown_2;
 }
 
-declare interface ListProps_2 extends ActionsInterface, NavigationChildInterface, SearchBarInterface {
+declare interface ListProps extends ActionsInterface, NavigationChildInterface, SearchBarInterface {
     /**
      * A reference to an {@link ActionPanel}. It will only be shown when there aren't any children.
      */
@@ -5669,7 +5600,7 @@ declare interface MenuBarExtraMembers {
      * }
      * ```
      */
-    Section: typeof Section_4;
+    Section: typeof Section;
 }
 
 declare interface MenuBarExtraProps {
@@ -5709,7 +5640,7 @@ declare interface MetadataMembers {
     /**
      * A metadata item that shows a separator line. Use it for grouping and visually separating metadata items.
      */
-    Separator: typeof Separator_2;
+    Separator: typeof Separator;
     /**
      * An item to display a link.
      */
@@ -6214,7 +6145,7 @@ declare const PasswordField: ForwardRefExoticComponent<PasswordFieldProps & RefA
 /**
  * See {@link Form.PasswordField.Props}
  */
-declare interface PasswordFieldProps extends FormItemProps_2<string> {
+declare interface PasswordFieldProps extends FormItemProps<string> {
     /**
      * Placeholder text shown in the password field.
      */
@@ -6265,7 +6196,7 @@ declare interface PasteProps {
 /**
  * See {@link Action.PickDate}
  */
-declare const PickDate: FunctionComponent<PickDateProps> & DatePickerMembers_2;
+declare const PickDate: FunctionComponent<PickDateProps> & DatePickerMembers;
 
 /**
  * See {@link Action.PickDate.Props}
@@ -6293,7 +6224,7 @@ declare interface PickDateProps {
      *
      * Defaults to {@link Action.PickDate.Type.DateTime}
      */
-    type?: DatePickerType_2;
+    type?: DatePickerType;
 }
 
 /**
@@ -6342,90 +6273,11 @@ export declare enum PopToRootType {
 }
 
 /**
- * Holds data about a single preference item (entered in Raycast Preferences).
- *
- * @remarks
- * The object maps to a defined preference in the `package.json` manifest file.
- */
-declare interface Preference_2 {
-    /**
-     * The name of the preference.
-     */
-    name: string;
-    /**
-     * The type of the preference.
-     */
-    type: "appPicker" | "checkbox" | "dropdown" | "password" | "textfield";
-    /**
-     * Specifies if the preference is required.
-     *
-     * @remarks
-     * If the preference is required, an onboarding view is shown when the
-     * extension is opened for the first time.
-     *
-     * @defaultValue `false`
-     */
-    required: boolean;
-    /**
-     * The title of the preference.
-     *
-     * @remarks
-     * The title is also shown in the Raycast preferences.
-     */
-    title: string;
-    /**
-     * The description of the preference.
-     *
-     * @remarks
-     * The description is shown in the Raycast preferences as well as in the
-     * onboarding view for required preferences.
-     */
-    description: string;
-    /**
-     * The value of the preference.
-     */
-    value?: unknown;
-    /**
-     * The default value of the preference if there is no `value` specified.
-     * For dropdowns, this references the `value` property of an object in the data array.
-     * For app pickers, this references an application name, bundleId or path."
-     */
-    default?: unknown;
-    /**
-     * A placeholder that is used for text fields and passwords.
-     */
-    placeholder?: string;
-    /**
-     * A label that is used for checkboxes.
-     * You can create checkbox groups by setting this property and leaving the title property empty for all checkboxes except the first.
-     */
-    label?: string;
-    /**
-     * The data that is used for dropdowns.
-     * For the dropdown items, add an array of objects with `title` and `value` properties, such as: `{"title": "Foo", "value": "bar"}`
-     */
-    data?: unknown[];
-}
-
-/**
- * A record type holding the preferences (entered in Raycast Preferences) that have been passed to the command.
- */
-declare type Preferences_2 = Record<string, Preference_2>;
-
-/**
  * Values of preference items.
  */
 export declare interface PreferenceValues {
     [name: string]: any;
 }
-
-declare type PromiseOptions<T extends FunctionReturningPromise> = {
-    abortable?: MutableRefObject<AbortController | null | undefined>;
-    execute?: boolean;
-    onError?: (error: Error) => void | Promise<void>;
-    onData?: (data: Awaited<ReturnType<T>>) => void | Promise<void>;
-    onWillExecute?: (parameters: Parameters<T>) => void;
-};
 
 /**
  * See {@link Action.Push.Props}
@@ -6515,7 +6367,7 @@ declare interface SearchBarInterface {
 }
 
 /**
- * See {@link ActionPanel.Section}
+ * See {@link ActionPanel.Section}, {@link MenuBarExtra.Section}
  */
 declare const Section: FunctionComponent<SectionProps>;
 
@@ -6528,11 +6380,6 @@ declare const Section_2: FunctionComponent<SectionProps_2>;
  * See {@link Grid.Section}
  */
 declare const Section_3: FunctionComponent<SectionProps_3>;
-
-/**
- * See {@link MenuBarExtra.Section}
- */
-declare const Section_4: FunctionComponent<SectionProps_4>;
 
 declare type SectionChildren = ReactElement<ActionProps> | ReactElement<ActionProps>[] | ReactElement<SubmenuProps> | Array<ReactElement<SubmenuProps>> | Array<ReactElement<SubmenuProps> | ReactElement<ActionProps>> | null;
 
@@ -6550,34 +6397,14 @@ declare interface SectionProps {
     title?: string;
 }
 
-declare interface SectionProps_2 {
-    /**
-     * The {@link List.Item} elements of the section.
-     */
-    children?: ReactNode;
-    /**
-     * Title displayed above the section.
-     */
-    title?: string;
+declare interface SectionProps_2 extends SectionProps {
     /**
      * An optional subtitle displayed next to the title of the section.
      */
     subtitle?: string;
 }
 
-declare interface SectionProps_3 {
-    /**
-     * The {@link Grid.Item} elements of the section.
-     */
-    children?: ReactNode;
-    /**
-     * Title displayed above the section.
-     */
-    title?: string;
-    /**
-     * An optional subtitle displayed next to the title of the section.
-     */
-    subtitle?: string;
+declare interface SectionProps_3 extends SectionProps {
     /**
      * Column count for the section. Minimum value is 1, maximum value is 8.
      *
@@ -6598,42 +6425,15 @@ declare interface SectionProps_3 {
     inset?: GridInset;
 }
 
-declare interface SectionProps_4 {
-    /**
-     * The item elements of the section.
-     */
-    children?: ReactNode;
-    /**
-     * Title displayed above the section
-     */
-    title?: string;
-}
-
 /**
- * See {@link Form.Separator}
+ * See {@link Form.Separator}, {@link Detail.Metadata.Separator}, {@link MenuBarExtra.Separator}, 
  */
 declare const Separator: FunctionComponent<SeparatorProps>;
-
-/**
- * See {@link Detail.Metadata.Separator}
- */
-declare const Separator_2: FunctionComponent<SeparatorProps_2>;
-
-/**
- * See {@link MenuBarExtra.Separator}
- */
-declare const Separator_3: FunctionComponent<SeparatorProps_3>;
 
 /**
  * See {@link Form.Separator.Props}
  */
 declare interface SeparatorProps {
-}
-
-declare interface SeparatorProps_2 {
-}
-
-declare interface SeparatorProps_3 {
 }
 
 /**
@@ -6856,7 +6656,7 @@ declare interface SubmenuProps_2 {
  * See {@link Action.SubmitForm.Props}
  */
 declare const SubmitForm: {
-    <T extends FormValues_2>(props: SubmitFormProps<T>): JSX.Element;
+    <T extends FormValues>(props: SubmitFormProps<T>): JSX.Element;
     displayName: string;
 };
 
@@ -6993,7 +6793,7 @@ declare interface TagPickerMembers {
 /**
  * See {@link Form.TagPicker.Props}
  */
-declare interface TagPickerProps extends FormItemProps_2<string[]> {
+declare interface TagPickerProps extends FormItemProps<string[]> {
     /**
      * The list of tags.
      */
@@ -7017,7 +6817,7 @@ declare const TextArea: ForwardRefExoticComponent<TextAreaProps & RefAttributes<
 /**
  * See {@link Form.TextArea.Props}
  */
-declare interface TextAreaProps extends FormItemProps_2<string> {
+declare interface TextAreaProps extends FormItemProps<string> {
     /**
      * Placeholder text shown in the text area.
      */
@@ -7043,7 +6843,7 @@ declare const TextField: ForwardRefExoticComponent<TextFieldProps & RefAttribute
 /**
  * See {@link Form.TextField.Props}
  */
-declare interface TextFieldProps extends FormItemProps_2<string> {
+declare interface TextFieldProps extends FormItemProps<string> {
     /**
      * Placeholder text shown in the text field.
      */
