@@ -682,78 +682,9 @@ declare interface DescriptionProps {
 }
 
 /**
- * Renders a markdown (CommonMark) string.
- *
- * @remarks
- * Typically used as a standalone view or when navigating from a {@link List}.
- *
- * @example
- * ```typescript
- * import { Detail } from "@raycast/api";
- *
- * export default function Command() {
- *   return <Detail markdown="**Hello** _World_!" />;
- * }
- * ```
- */
-export declare const Detail: FunctionComponent<DetailProps_2> & DetailMembers;
-
-export declare namespace Detail {
-    /**
-     * Props of the {@link Detail} React component.
-     */
-    export type Props = DetailProps_2;
-    export namespace Metadata {
-        /**
-         * Props of the {@link Detail.Metadata} React component.
-         */
-        export type Props = MetadataProps;
-        export namespace Label {
-            /**
-             * Props of the {@link Detail.Metadata.Label} React component.
-             */
-            export type Props = LabelProps;
-        }
-        export namespace Separator {
-            /**
-             * Props of the {@link Detail.Metadata.Separator} React component.
-             */
-            export type Props = SeparatorProps;
-        }
-        export namespace Link {
-            /**
-             * Props of the {@link Detail.Metadata.Link} React component.
-             */
-            export type Props = LinkProps;
-        }
-        export namespace TagList {
-            /**
-             * Props of the {@link Detail.Metadata.TagList} React component.
-             */
-            export type Props = TagListProps;
-            export namespace Item {
-                /**
-                 * Props of the {@link Detail.Metadata.TagList.Item} React component.
-                 */
-                export type Props = TagListItemProps;
-            }
-        }
-    }
-}
-
-/**
  * See {@link List.Item.Detail}
  */
-declare const Detail_2: FunctionComponent<DetailProps_2> & DetailMembers_2;
-
-declare interface DetailMembers {
-    /**
-     * A Metadata view that will be shown in the right-hand-side of the `Detail`.
-     *
-     * Use it to display additional structured data about the main content shown in the `Detail` view.
-     */
-    Metadata: typeof Metadata;
-}
+declare const Detail_2: FunctionComponent<DetailProps> & DetailMembers_2;
 
 declare interface DetailMembers_2 {
     /**
@@ -845,18 +776,7 @@ declare interface DetailMembers_2 {
     Metadata: typeof Metadata;
 }
 
-declare interface DetailProps extends ActionsInterface, NavigationChildInterface {
-    /**
-     * The CommonMark string to be rendered.
-     */
-    markdown?: string | null;
-    /**
-     * The `Detail.Metadata` to be rendered in the right side area
-     */
-    metadata?: ReactNode;
-}
-
-declare interface DetailProps_2 {
+export declare interface DetailProps {
     /**
      * Indicates whether a loading bar should be shown or hidden above the detail
      *
@@ -3683,7 +3603,7 @@ export declare namespace Keyboard {
  */
 declare const Label: FunctionComponent<LabelProps>;
 
-declare interface LabelProps {
+export declare interface LabelProps {
     /**
      * The title of the item.
      */
@@ -3787,7 +3707,7 @@ export declare enum LaunchType {
  */
 declare const Link: FunctionComponent<LinkProps>;
 
-declare interface LinkProps {
+export declare interface LinkProps {
     /**
      * The title shown above the item.
      */
@@ -3907,7 +3827,7 @@ export declare namespace List {
             /**
              * Props of the {@link List.Item.Detail} React component.
              */
-            export type Props = DetailProps_2;
+            export type Props = DetailProps;
             export namespace Metadata {
                 /**
                  * Props of the {@link List.Item.Detail.Metadata} React component.
@@ -4423,7 +4343,7 @@ declare interface MenuBarExtraProps {
 /**
  * See {@link Detail.Metadata}
  */
-declare const Metadata: FunctionComponent<MetadataProps> & MetadataMembers;
+export declare const Metadata: FunctionComponent<MetadataProps> & MetadataMembers;
 
 declare interface MetadataMembers {
     /**
@@ -4444,7 +4364,7 @@ declare interface MetadataMembers {
     TagList: typeof TagList;
 }
 
-declare interface MetadataProps {
+export declare interface MetadataProps {
     /**
      * The elements of the Metadata view.
      */
@@ -4992,7 +4912,7 @@ declare const Separator: FunctionComponent<SeparatorProps>;
 /**
  * See {@link Form.Separator.Props}
  */
-declare interface SeparatorProps {
+export declare interface SeparatorProps {
 }
 
 /**
@@ -5109,7 +5029,7 @@ declare const TagList: FunctionComponent<TagListProps> & TagListMembers;
  */
 declare const TagListItem: FunctionComponent<TagListItemProps>;
 
-declare interface TagListItemProps {
+export declare interface TagListItemProps {
     /**
      * An optional icon in front of the text of the tag.
      */
@@ -5131,7 +5051,7 @@ declare interface TagListMembers {
     Item: typeof TagListItem;
 }
 
-declare interface TagListProps {
+export declare interface TagListProps {
     /**
      * The title shown above the item.
      */
