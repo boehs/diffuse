@@ -1,7 +1,6 @@
 import { DetailProps, MetadataProps, LabelProps, SeparatorProps, LinkProps, TagListProps, TagListItemProps, Metadata } from '.';
 import { FunctionComponent } from 'react'
 
-
 export declare namespace Detail {
     /**
      * Props of the {@link Detail} React component.
