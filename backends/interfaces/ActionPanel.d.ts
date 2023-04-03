@@ -1,4 +1,5 @@
-import { SectionProps, Section, Action, Image, Keyboard, SearchBarInterface } from '.';
+import { SectionProps, Section, Image, Keyboard, SearchBarInterface, List, Grid, Detail } from '.';
+import { Action } from "./Action";
 import { FunctionComponent, ReactNode, ReactElement } from 'react' 
 
 /**
